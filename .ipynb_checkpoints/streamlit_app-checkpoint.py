@@ -69,7 +69,7 @@ def app():
                           loss=tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True),
                           metrics=['accuracy'])
 
-            # define a callback to write the output of each epoch to a text file
+            # define a callback to write the output of each epoch to streamlit
             class EpochCallback(tf.keras.callbacks.Callback):
                 def on_epoch_end(self, epoch, logs={}):
                     st.write(f"Epoch {epoch+1}: loss={logs['loss']:.4f}, acc={logs['accuracy']:.4f}\n")
@@ -82,7 +82,7 @@ def app():
 
             # Evaluate the model on the test set
             test_loss, test_acc = model.evaluate(x_test, y_test, verbose=2)
-            st.write('Test accuracy:' + str(test_acc))
+            st.write('\n\nTest accuracy: ' + str(test_acc))
             
     st.write('In this version of the MLP we used the Keras library running on Tensorflow.  \
             Keras is a high-level neural network library written in Python that can run \
