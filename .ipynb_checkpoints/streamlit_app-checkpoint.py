@@ -83,7 +83,7 @@ def app():
 
             # Evaluate the model on the test set
             test_loss, test_acc = model.evaluate(x_test, y_test, verbose=2)
-            st.write('\n\Final accuracy: ' + str(test_acc))
+            st.write('\n\nFinal accuracy: ' + str(test_acc))
             
     st.write('In this version of the MLP we used the Keras library running on Tensorflow.  \
             Keras is a high-level neural network library written in Python that can run \
