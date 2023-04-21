@@ -50,7 +50,8 @@ def app():
         epochs = st.slider('Number of epochs', 50, 250, 100, 10)
         if st.button('Run the Classifier'):
             # Split the dataset into training and testing sets
-            x_train, x_test, y_train, y_test = train_test_split(df.data, df.target, test_size=0.2, random_state=42)
+            x_train, x_test, y_train, y_test = train_test_split(df.data, df.target, \
+                        test_size=0.2, random_state=42)
 
             # Normalize the input features
             mean = x_train.mean(axis=0)
@@ -72,7 +73,7 @@ def app():
             # define a callback to write the output of each epoch to streamlit
             class EpochCallback(tf.keras.callbacks.Callback):
                 def on_epoch_end(self, epoch, logs={}):
-                    st.write(f"Epoch {epoch+1}: loss={logs['loss']:.4f}, acc={logs['accuracy']:.4f}\n")
+                    st.text(f"Epoch {epoch+1}: loss={logs['loss']:.4f}, acc={logs['accuracy']:.4f}\n")
 
             callback = EpochCallback()
             
