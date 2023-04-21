@@ -41,9 +41,7 @@ def app():
     data = pd.DataFrame(df.data)
     data.columns = ['Sepal Length', 'Sepal Width', 'Petal Length', 'Petal Width']
     st.dataframe(data, use_container_width=True)  
-    #shufle the data
-    df = df.sample(frac = 1)
-     
+    
     st.subheader('Configuring the Neural Net')
     with st.echo(code_location='below'):
         #set the number of hidden layers
