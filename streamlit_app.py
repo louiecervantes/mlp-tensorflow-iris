@@ -37,8 +37,8 @@ def app():
     st.subheader('Load the Iris Dataset')
     
     # Load the Iris dataset
-    df = pd.DataFrame(load_iris())
-    st.dataframe(df, use_container_width=True)  
+    df = load_iris()
+    st.dataframe(df.data, use_container_width=True)  
     #shufle the data
     df = df.sample(frac = 1)
      
