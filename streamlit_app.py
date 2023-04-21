@@ -38,7 +38,7 @@ def app():
     
     # Load the Iris dataset
     df = load_iris()
-    data = df.data
+    data = pd.DataFrame(df.data)
     data.columns = ['Sepal Length', 'Sepal Width', 'Petal Length', 'Petal Width']
     st.dataframe(data, use_container_width=True)  
     #shufle the data
